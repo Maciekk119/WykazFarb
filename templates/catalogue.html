@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Katalog</title>
+</head>
+<body>
+    <h1>Katalog farb</h1>
+    {% for farba in paints%}
+        <li>{{farba}}<a href="odpowiedniki/{{farba.id }}">Pokaż odpowiednik innego producenta</a></li>
+
+    {% endfor %}
+
+</body>
+</html>
