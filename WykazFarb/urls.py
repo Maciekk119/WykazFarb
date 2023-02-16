@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from WykazFarb.views import Main, CatalogueBrands, CatalogueTypes, Analog
+from WykazFarb.views import Main, CatalogueBrands, CatalogueTypes, Analog, Logging, Registering, PaintSets, Logout
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Main.as_view()),
-    path('katalog/<brand>', CatalogueBrands.as_view()),
+    path('katalog/brand/<brand>', CatalogueBrands.as_view()),
     path('katalog/type/<type>', CatalogueTypes.as_view()),
-    path('katalog/odpowiedniki/<id>', Analog.as_view()),
+    path('odpowiedniki/<id>', Analog.as_view()),
+    path('paintsets/', PaintSets),
+    path('accounts/login/', Logging.as_view()),
+    path('registering/', Registering.as_view()),
+    path('logout/', Logout),
+
+
 
 ]

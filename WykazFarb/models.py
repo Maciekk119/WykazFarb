@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-BRANDS= (
+BRANDS = (
     (1, 'Citadel'),
     (2, 'Vallejo'),
     (3, 'Tamiya'),
@@ -18,8 +18,8 @@ TYPES = (
 )
 
 
-
 class Paint(models.Model):
+    """This model creates paints"""
     name = models.CharField(max_length=64)
     code = models.CharField(null=True, max_length=64)
     brand = models.IntegerField(choices=BRANDS)
@@ -29,12 +29,17 @@ class Paint(models.Model):
     def __str__(self):
         return "{} ".format(self.name)
 class Collection(models.Model):
+    """This model represents collection of paints owned by the user"""
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     contains = models.ManyToManyField(Paint)
 
-class Set(models.Model):
+class Paint_Sets(models.Model):
+    """This model represents paintsets created by the user"""
     name = models.CharField(max_length=64)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     paints = models.ManyToManyField(Paint)
+
+    def __str__(self):
+        return "{} ".format(self.name)
 
 

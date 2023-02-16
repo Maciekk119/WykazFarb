@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Zestawy Farb</title>
+</head>
+<body>
+    <menu>
+    <a href="/">Strona Główna</a>
+    <p>Zalogowano jako: {{ user.username }}
+        <a href="/logout">Wyloguj</a></p>
+    <h1>
+        Twoje zestawy farb
+    </h1>
+    <ol>
+        {% for zestaw in farby %}
+                {% for pozycja1 in zestaw|slice:":1" %}
+                  <li>{{ pozycja1.name }}</li>
+                {% endfor %}
+                <ul>
+                {% for pozycja2 in zestaw|slice:"1:" %}
+                    {% for element in pozycja2 %}
+                        <li>{{ element }}</li>
+                  {% endfor %}
+                    </ul>
+                {% endfor %}
+        {% endfor %}
+    </ol>
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Dodaj zestaw farb:</h2>
+        <p>
+            <label for="id_text_input">Nazwa nowego zestawu</label>
+            <input id="id_text_input" type="text" name="text_input" value="">
+            <button type="submit" name="button1" value="Dodaj">Dodaj</button>
+        </p>
+    </form>
+
+    </menu>
+</body>
+</html>
+
+
+

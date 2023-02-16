@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/static/css/style.css">
     <meta charset="UTF-8">
     <title>Odpowiedniki Farb</title>
 </head>
 <body>
+    <menu>
+    <a href="/">Strona Główna</a>
     <h1>Odpowiedniki wybranej farby</h1>
-        <p>Odpowiednikiem {{paint}} jest: {{paint.analog}}</p>
+    <p>Dodaj wybraną farbę do swojego zestawu</p><br>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="id_paints">Wybierz zestaw</label>
+        <select id="paint_sets" name="paint_set">
+            {% for zestaw in paintsets %}
+                    <option value={{ zestaw.id }}>{{ zestaw }}</option>
 
+                {% endfor %}
+                    <option value="kolekcja">Kolekcja</option>
 
+        </select>
+        <button type="submit" name="dodaj" value=paint >Dodaj farbę</button>
+    </form>
+    <br>
+    <p>{% block content %}
+        {% if paint.analog == None %}
+        Wybrana farba nie ma odpowiednika w palecie innego producenta.
 
+        {% else %}
+        Odpowiednikiem wybranej farby jest:
+        {{paint.analog}}
+        {% endif %}</p>
+        {% endblock %}
+    </menu>
 </body>
 </html>
