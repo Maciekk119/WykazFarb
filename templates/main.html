@@ -2,46 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/style.css">
+      {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
     <title>Wykaz Farb</title>
+
 </head>
 <body>
 <menu>
-{% block content %}
-    {% if user.is_authenticated %}
-        <p>Zalogowano jako: {{ user.username }}
-        <a href="/logout">Wyloguj</a></p>
-    {% else %}
-        <a href="accounts/login">Zaloguj się</a>
-        <a href="registering">Zarejestruj się</a>
-    {% endif %}
-{% endblock %}
+    {% block content %}
+        {% if user.is_authenticated %}
+            <p>Zalogowano jako: {{ user.username }}
+                <a href="/logout">Wyloguj</a></p>
+        {% else %}
+            <a href="accounts/login">Zaloguj się</a>
+            <a href="registering">Zarejestruj się</a>
+        {% endif %}
+    {% endblock %}
 
     <h1>Wykaz Farb</h1>
     <p>Przeglądaj według producentów
-        <ol>
-            <li><a href="katalog/brand/1">Citadel</a></li>
-            <li><a href="katalog/brand/2">Vallejo</a></li>
-            <li><a href="katalog/brand/3">Tamiya</a></li>
+    <ol>
+        <li><button class="btn-secondary"><a href="katalog/brand/1">Citadel</a></button></li>
+        <li><a href="katalog/brand/2">Vallejo</a></li>
+        <li><a href="katalog/brand/3">Tamiya</a></li>
 
-        </ol>
+    </ol>
     </p>
     <p>Przeglądaj według rodzajów
-        <ol>
-            <li><a href="katalog/type/1">Regular</a></li>
-            <li><a href="katalog/type/2">Wash</a></li>
-            <li><a href="katalog/type/3">Ink</a></li>
-            <li><a href="katalog/type/4">Contrast</a></li>
-            <li><a href="katalog/type/5">Spray</a></li>
-            <li><a href="katalog/type/6">Other</a></li>
+    <ol>
+        <li><a href="katalog/type/1">Regular</a></li>
+        <li><a href="katalog/type/2">Wash</a></li>
+        <li><a href="katalog/type/3">Ink</a></li>
+        <li><a href="katalog/type/4">Contrast</a></li>
+        <li><a href="katalog/type/5">Spray</a></li>
+        <li><a href="katalog/type/6">Other</a></li>
 
 
-        </ol>
+    </ol>
 
     </p>
     <p>
         <a href="paintsets">Twoje zestawy farb</a>
     </p>
 </menu>
+<script src="static/css/bootstrap.js" ></script>
 </body>
 </html>

@@ -36,6 +36,10 @@
             <button type="submit" name="button1" value="Dodaj">Dodaj</button>
         </p>
     </form>
+        {% for farba in kolekcja %}
+            <li>{{ farba }}</li>
+        {% endfor %}
+
 
     </menu>
 </body>

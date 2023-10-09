@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'WykazFarb'
+    'WykazFarb',
+    'zestawy',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'WykazFarb',
         'USER': 'postgres',
-        'PASSWORD': 'coderslab',
+        'PASSWORD': '3142',
     }
 }
 
