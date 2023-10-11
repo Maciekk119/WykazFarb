@@ -4,48 +4,75 @@
     <meta charset="UTF-8">
       {% load bootstrap5 %}
   {% bootstrap_css %}
-  {% bootstrap_javascript %}
+
     <title>Wykaz Farb</title>
 
 </head>
 <body>
-<menu>
-    {% block content %}
-        {% if user.is_authenticated %}
-            <p>Zalogowano jako: {{ user.username }}
-                <a href="/logout">Wyloguj</a></p>
-        {% else %}
-            <a href="accounts/login">Zaloguj się</a>
-            <a href="registering">Zarejestruj się</a>
-        {% endif %}
-    {% endblock %}
+<div class=".container-fluid">
+    <div class="row  bg-primary">
+    <div class="navbar justify-content-between">
+        <div class=".col ">
+            <h1>Wykaz Farb</h1>
+        </div>
+        <div class="btn-group ">
+            {% block content %}
+                {% if user.is_authenticated %}
+                    <p>Zalogowano jako: {{ user.username }}
+                        <button type="button" class="btn-primary"><a href="/logout">Wyloguj</a></button></p>
+                {% else %}
+                    <a href="accounts/login"><button type="button" class="btn btn-primary border-0" >Zaloguj się</button></a>
+                    <a href="registering"><button type="button"  class="btn btn-primary border-0">Zarejestruj się</button></a>
+                {% endif %}
+            {% endblock %}
 
-    <h1>Wykaz Farb</h1>
-    <p>Przeglądaj według producentów
-    <ol>
-        <li><button class="btn-secondary"><a href="katalog/brand/1">Citadel</a></button></li>
-        <li><a href="katalog/brand/2">Vallejo</a></li>
-        <li><a href="katalog/brand/3">Tamiya</a></li>
+        </div>
+    </div>
+</div>
+<div class=".container-fluid">
 
-    </ol>
-    </p>
-    <p>Przeglądaj według rodzajów
-    <ol>
-        <li><a href="katalog/type/1">Regular</a></li>
-        <li><a href="katalog/type/2">Wash</a></li>
-        <li><a href="katalog/type/3">Ink</a></li>
-        <li><a href="katalog/type/4">Contrast</a></li>
-        <li><a href="katalog/type/5">Spray</a></li>
-        <li><a href="katalog/type/6">Other</a></li>
+</div>
+    <div class="row ">
+
+        <div class="col-2">
+    <menu >
+        <h4 class="h4">
+          Przeglądaj według producentów
+        </h4>
+
+        <ol class="list-group border-0 ">
+            <li class="list-group-item border-0"> <a href="katalog/brand/1" ><button type="button" class="btn btn-light border-0 w-100">Citadel</button></a></li>
+            <li class="list-group-item border-0"><a href="katalog/brand/2"><button type="button" class="btn btn-light border-0 w-100">Vallejo</button></a></li>
+            <li class="list-group-item border-0"><a href="katalog/brand/3"><button type="button" class="btn btn-light border-0 w-100">Tamiya</button></a></li>
+
+        </ol>
+        <h4 class="h4">
+            Przeglądaj według rodzajów
+        </h4>
+        <ol class="list-group border-0">
+            <li class="list-group-item border-0"><a href="katalog/type/1"><button type="button" class="btn btn-light border-0 w-100">Regular</button></a></li>
+            <li class="list-group-item border-0"><a href="katalog/type/2"><button type="button" class="btn btn-light border-0 w-100">Wash</button></a></li>
+            <li class="list-group-item border-0"><a href="katalog/type/3"><button type="button" class="btn btn-light border-0 w-100">Ink</button></a></li>
+            <li class="list-group-item border-0"><a href="katalog/type/4"><button type="button" class="btn btn-light border-0 w-100">Contrast</button></a></li>
+            <li class="list-group-item border-0"><a href="katalog/type/5"><button type="button" class="btn btn-light border-0 w-100">Spray</button></a></li>
+            <li class="list-group-item border-0"><a href="katalog/type/6"><button type="button" class="btn btn-light border-0 w-100">Other</button></a></li>
 
 
-    </ol>
+        </ol>
 
-    </p>
-    <p>
-        <a href="paintsets">Twoje zestawy farb</a>
-    </p>
-</menu>
-<script src="static/css/bootstrap.js" ></script>
+    </menu>
+</div>
+        <div class="col h-full">
+
+
+                <p>
+                    <a href="paintsets">Twoje zestawy farb</a>
+                </p>
+        </div>
+
+</div>
+</div>
+{% bootstrap_javascript %}
+
 </body>
 </html>
