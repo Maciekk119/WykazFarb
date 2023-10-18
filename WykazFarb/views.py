@@ -117,3 +117,6 @@ def PaintSets(request):
 def Logout(request):
     logout(request)
     return redirect('/')
+
+def xyz():
+    pass
