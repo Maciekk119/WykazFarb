@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <title>Zestawy Farb</title>
-</head>
-<body>
-    <menu>
-    <a href="/">Strona Główna</a>
-    <p>Zalogowano jako: {{ user.username }}
-        <a href="/logout">Wyloguj</a></p>
+{% extends 'main.html' %}
+{% block content %}
     <h1>
         Twoje zestawy farb
     </h1>
@@ -40,10 +30,7 @@
             <li>{{ farba }}</li>
         {% endfor %}
 
-
-    </menu>
-</body>
-</html>
+{% endblock %}
 
 
 

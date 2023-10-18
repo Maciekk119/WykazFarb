@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <meta charset="UTF-8">
-    <title>Rejestracja</title>
-</head>
-<body>
-    <menu>
-    <p><a href="/">Strona Główna</a></p>
+{% extends 'main.html' %}
+{% block content %}
     <form action="" method="POST">
         {%csrf_token%}
         {{ form }}
         <input type="submit" value="Zarejestruj">
     </form>
-    </menu>
-</body>
-</html>
+    <h1 class="text-danger">{{message}}</h1>
+{% endblock %}

@@ -87,8 +87,9 @@ class Registering(View):
             user = authenticate(username=username, password=password)
             login(request, user)
             Collection.objects.create(owner=user)
-
-        return redirect('/')
+            return redirect('/')
+        else:
+            return render(request, 'registration.html', {'form': form, 'message': 'Nieprawidłowy login lub hasło'} )
 
 
 @login_required
