@@ -114,6 +114,13 @@ def PaintSets(request):
         return redirect("/paintsets")
 
 
+class Paints(View):
+
+    def get(self, request):
+        return redirect("/")
+
+
+
 def Logout(request):
     logout(request)
     return redirect('/')
