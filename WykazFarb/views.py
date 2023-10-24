@@ -47,12 +47,13 @@ class Analog(View):
         user = request.user
         paint = Paint.objects.get(id=id)
         paintset_in = request.POST["paint_set"]
-        if paintset_in == 'kolekcja':
-            collection = Collection.objects.get(owner=user)
-            collection.contains.add(paint)
-            return redirect('/')
-        paintset_out = Paint_Sets.objects.get(id=paintset_in)
-        paintset_out.paints.add(paint)
+        collection = Collection.objects.get(owner=user)
+        collection_contains = collection.contains
+        collection_contains.add(paint)
+        if paintset_in != 'kolekcja':
+            paintset_out = Paint_Sets.objects.get(id=paintset_in)
+            paintset_out.paints.add(paint)
+
         return redirect('/')
 
 
@@ -117,7 +118,10 @@ def PaintSets(request):
 class Paints(View):
 
     def get(self, request):
-        return redirect("/")
+        user_id = request.user.id
+        kolekcja_id = Collection.objects.get(owner_id=user_id)
+        kolekcja = Paint.objects.filter(collection=kolekcja_id)
+        return render(request, 'paints.html', {'kolekcja': kolekcja})
 
 
 
