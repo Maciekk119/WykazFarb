@@ -1,12 +1,24 @@
 {% extends 'main.html' %}
 {% block content %}
+<div class="row justify-content-center d-flex h-100 align-items-center">
+    <div class="col-3 h-full ">
+        <div class="card border-0">
     <form method="POST">
         {% csrf_token %}
         <br>
-        <p><label for="username">Login:</label>
-        <input type="text" name="username"><br></p>
-        <p><label for="password">Hasło</label>
-            <input type="password" name="password" ><br></p>
-        <input type="submit" name="zaloguj" value="zaloguj">
+<div class="input-group mb-3 ">
+
+        <input type="text" class="form-control" name="username" placeholder="Użytkownik">
+</div>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Hasło">
+
+    </div>
+        <div class="input-group mb-3 justify-content-center">
+        <input type="submit" class="btn btn-primary" name="zaloguj" value="zaloguj">
+        </div>
     </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
