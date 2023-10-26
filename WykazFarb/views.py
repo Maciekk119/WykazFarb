@@ -38,7 +38,9 @@ class Analog(View):
     def get(self, request, id):
         paint = Paint.objects.get(id=id)
         user = request.user
-        paintsets = Paint_Sets.objects.filter(user=user)
+        paintsets = ''
+        if user.is_authenticated:
+            paintsets = Paint_Sets.objects.filter(user=user)
         return render(request, 'analogs.html', {'paint': paint, 'paintsets': paintsets})
 
     """This view lets you add paint to your set or your collection"""
@@ -108,11 +110,13 @@ def PaintSets(request):
             zestaw = [paintset, paints]
             farby.append(zestaw)
         return render(request, 'paintsets.html', {'farby': farby, 'kolekcja': kolekcja})
+
     if request.method == "POST":
         set_name = request.POST['text_input']
         user = request.user
         Paint_Sets.objects.create(name=set_name, user=user)
-        return redirect("/paintsets")
+        link = '/paintsets/?name=1'
+        return redirect(link)
 
 
 class Paints(View):

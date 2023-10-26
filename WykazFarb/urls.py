@@ -22,7 +22,7 @@ urlpatterns = [
     path('katalog/brand/<brand>', views.CatalogueBrands.as_view()),
     path('katalog/type/<type>', views.CatalogueTypes.as_view()),
     path('odpowiedniki/<id>', views.Analog.as_view()),
-    path('paintsets/', include('zestawy.urls')),
+    path('paintsets/', views.PaintSets, name="PaintSets"),
     path('paints/', views.Paints.as_view()),
     path('accounts/login/', views.Logging.as_view()),
     path('registering/', views.Registering.as_view()),

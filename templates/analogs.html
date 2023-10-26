@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 {% block content %}
     <h1>Odpowiedniki wybranej farby</h1>
+    {% if user.is_authenticated %}
     <p>Dodaj wybraną farbę do swojego zestawu</p><br>
     <form method="POST">
         {% csrf_token %}
@@ -10,10 +11,12 @@
                     <option value={{ zestaw.id }}>{{ zestaw }}</option>
 
                 {% endfor %}
+
                     <option value="kolekcja">Kolekcja</option>
 
         </select>
         <button type="submit" name="dodaj" value=paint >Dodaj farbę</button>
+        {% endif %}
     </form>
     <br>
     <p>
