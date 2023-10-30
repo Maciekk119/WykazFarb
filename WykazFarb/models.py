@@ -25,7 +25,7 @@ class Paint(models.Model):
     code = models.CharField(null=True, max_length=64)
     brand = models.IntegerField(choices=BRANDS)
     type = models.IntegerField(choices=TYPES)
-    analog = models.ForeignKey('self', null=True, on_delete=models.SET_NULL)
+    analog = models.ManyToManyField('self')
 
     def __str__(self):
         return "{} ".format(self.name)

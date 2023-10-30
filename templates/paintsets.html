@@ -4,11 +4,11 @@
         Twoje zestawy farb
     </h1>
     <div class="d-flex justify-content-left">
-    <ol class="list-group ">
+    <ol class="list-group">
         {% for zestaw in farby %}
-            <ul class="list-group-item border-0">
+            <ul class="list-group-item border-4 m-4 border-primary">
                 {% for pozycja1 in zestaw|slice:":1" %}
-                  <li class="list-group-item  list-group-item-primary my-1 border-0" >{{ pozycja1.name }}
+                  <li class="list-group-item  list-group-item-primaryp border-0" >{{ pozycja1.name }}
 
                         {% for pozycja2 in zestaw|slice:"1:" %}
                             {% for element in pozycja2 %}
