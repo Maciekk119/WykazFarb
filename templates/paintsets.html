@@ -4,22 +4,35 @@
         Twoje zestawy farb
     </h1>
     <div class="d-flex justify-content-left">
-    <ol class="list-group">
-        {% for zestaw in farby %}
-            <ul class="list-group-item border-4 m-4 border-primary">
-                {% for pozycja1 in zestaw|slice:":1" %}
-                  <li class="list-group-item  list-group-item-primaryp border-0" >{{ pozycja1.name }}
 
-                        {% for pozycja2 in zestaw|slice:"1:" %}
-                            {% for element in pozycja2 %}
-                        <li class="list-group-item list-group-item-primary border-0 ">{{ element }}</li>
-                            {% endfor %}
-                    </li>
-                {% endfor %}
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    </ol>
+    <div class="accordion" id="accordion">
+   {% for zestaw in farby %}
+        {% with collapse=forloop.counter %}
+
+        <div class="accordion-item">
+       {% for pozycja1 in zestaw|slice:":1" %}
+
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ collapse }}" aria-expanded="true" aria-controls="collapse{{ collapse }}">
+          {{ forloop.count }}
+        {{ pozycja1.name }}
+      </button>
+    </h2>
+           {% endfor %}
+    <div id="collapse{{ collapse }}" class="accordion-collapse collapse show" data-bs-parent="#accordion">
+      <div class="accordion-body">
+        {% for pozycja2 in zestaw|slice:"1:" %}
+            {% for element in pozycja2 %}
+                {{ element }}
+            {% endfor %}
+            {% endfor %}
+    </div>
+        {% endwith %}
+   </div>
+      {% endfor %}
+  </div>
+
+
     </div>
     <form method="POST">
         {% csrf_token %}
@@ -35,6 +48,3 @@
         {% endfor %}
 
 {% endblock %}
-
-
-
