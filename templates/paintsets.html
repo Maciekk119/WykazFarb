@@ -4,47 +4,49 @@
         Twoje zestawy farb
     </h1>
     <div class="d-flex justify-content-left">
+    <div class="accordion " id="accordion">
+        {% for zestaw in farby %}
+            {% with collapse=forloop.counter %}
 
-    <div class="accordion" id="accordion">
-   {% for zestaw in farby %}
-        {% with collapse=forloop.counter %}
+                <div class="accordion-item border-0">
+                {% for pozycja1 in zestaw|slice:":1" %}
 
-        <div class="accordion-item">
-       {% for pozycja1 in zestaw|slice:":1" %}
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ collapse }}" aria-expanded="true"
+                                aria-controls="collapse{{ collapse }}">
+                            {{ forloop.count }}
+                            {{ pozycja1.name }}
+                        </button>
+                    </h2>
+                {% endfor %}
+                <div id="collapse{{ collapse }}" class="accordion-collapse collapse border-0" data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    {% for pozycja2 in zestaw|slice:"1:" %}
+                        {% for element in pozycja2 %}
+                            {{ element }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endwith %}
+        </div>
+        {% endfor %}
+        </div>
 
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ collapse }}" aria-expanded="true" aria-controls="collapse{{ collapse }}">
-          {{ forloop.count }}
-        {{ pozycja1.name }}
-      </button>
-    </h2>
-           {% endfor %}
-    <div id="collapse{{ collapse }}" class="accordion-collapse collapse show" data-bs-parent="#accordion">
-      <div class="accordion-body">
-        {% for pozycja2 in zestaw|slice:"1:" %}
-            {% for element in pozycja2 %}
-                {{ element }}
-            {% endfor %}
-            {% endfor %}
-    </div>
-        {% endwith %}
-   </div>
-      {% endfor %}
-  </div>
-
-
-    </div>
+<div>
+    <div class="accordion-item border-0">
     <form method="POST">
         {% csrf_token %}
         <h2>Dodaj zestaw farb:</h2>
         <p>
             <label for="id_text_input">Nazwa nowego zestawu</label>
             <input id="id_text_input" type="text" name="text_input" value="">
-            <button type="submit" name="button1" value="Dodaj">Dodaj</button>
+            <button class="btn btn-primary" type="submit" name="button1" value="Dodaj">Dodaj</button>
         </p>
     </form>
-        {% for farba in kolekcja %}
-            <li>{{ farba }}</li>
-        {% endfor %}
+    </div>
+    </div>
+    </div>
+    </div>
 
 {% endblock %}
