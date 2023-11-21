@@ -1,17 +1,17 @@
 {% extends 'main.html' %}
 {% block content %}
-<div class="row justify-content-center d-flex h-100 align-items-center">
+<div class="row justify-content-center d-flex h-100 align-items-center ">
     <div class="col-3 h-full ">
         <div class="card border-4 border-primary ">
-            <div class="card-header text-center border-primary border-4 ">
+            <div class="card-header text-center  border-primary border-4 text-primary ">
                 Zaloguj się
             </div>
     <form method="POST">
         {% csrf_token %}
         <br>
-<div class="input-group mb-3 px-4">
+<div class="input-group mb-3 px-4 ">
 
-        <input type="text" class="form-control border-primary" name="username" placeholder="Użytkownik">
+        <input type="text" class="form-control border-primary " name="username" placeholder="Użytkownik">
 </div>
         <div class="input-group mb-3 px-4">
             <input type="password" class="form-control border-primary " name="password" placeholder="Hasło">
