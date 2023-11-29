@@ -30,18 +30,21 @@ class Paint(models.Model):
     def __str__(self):
         return "{} ".format(self.name)
 
-
-class Collection(models.Model):
-    """This model represents collection of paints owned by the user"""
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    contains = models.ManyToManyField(Paint)
-
-
 class Paint_Sets(models.Model):
     """This model represents paintsets created by the user"""
     name = models.CharField(max_length=64)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     paints = models.ManyToManyField(Paint)
+class Collection(models.Model):
+    """This model represents collection of paints owned by the user"""
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    contains = models.ManyToManyField(Paint)
+
 
     def __str__(self):
         return "{} ".format(self.name)
+
+class Element(models.Model):
+    name = models.CharField(max_length=64)
+    paints = models.ManyToManyField(Paint)
+    paint_sets = models.ForeignKey(Paint_Sets, on_delete=models.CASCADE, null=True)

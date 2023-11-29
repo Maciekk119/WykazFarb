@@ -8,7 +8,7 @@
         <label for="id_paints">Wybierz zestaw</label>
         <select id="paint_sets" name="paint_set">
             {% for zestaw in paintsets %}
-                    <option value={{ zestaw.id }}>{{ zestaw }}</option>
+                    <option value={{ zestaw.id }}>{{ zestaw.name }}</option>
 
                 {% endfor %}
 
