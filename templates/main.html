@@ -10,11 +10,12 @@
 
 </head>
 <body>
-<div class=".container-fluid">
+<div class="container-fluid">
     <div class="row  bg-primary">
-    <div class="navbar justify-content-between">
-        <div class=".col ">
-            <img src="{% static 'images/logo4.png' %}" class="img-responsive" style="height:100px">
+    <div class="navbar justify-content-between ">
+        <div class="col ">
+
+            <img src="{% static 'images/logo4.png' %}" class="img-fluid d-none d-md-block" style="height:100px">
 
         </div>
         {% if user.is_authenticated %}
@@ -24,7 +25,7 @@
             </div>
         {% endif %}
 
-        <div class="btn-group ">
+        <div class="btn-group">
                 {% if user.is_authenticated %}
                     <div class="my-auto">Zalogowano jako: {{ user.username }}</div>
                         <a href="/logout"><button type="button"  class="btn btn-primary border-0">Wyloguj się</button></a>
@@ -36,12 +37,12 @@
 
     </div>
 </div>
-<div class=".container-fluid">
+<div class=".container-fluid ">
 
 </div>
     <div class="row justify-content-left">
 
-        <div class="col-2">
+        <div class="col-12 col-md-4 col-lg-2">
     <menu >
         <h4 class="h4">
           Przeglądaj według producentów
