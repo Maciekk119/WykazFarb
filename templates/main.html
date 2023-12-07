@@ -3,82 +3,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-      {% load bootstrap5 %}
-  {% bootstrap_css %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
 
     <title>Wykaz Farb</title>
 
 </head>
 <body>
+
 <div class="container-fluid">
-    <div class="row  bg-primary">
-    <div class="navbar justify-content-between ">
-        <div class="col ">
+    <div class="row  bg-primary justify-content-between">
+        <nav class="navbar bg-primary navbar-light">
 
-            <img src="{% static 'images/logo4.png' %}" class="img-fluid d-none d-md-block" style="height:100px">
+            <div class="col ">
+                <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+                </button>
 
-        </div>
-        {% if user.is_authenticated %}
-            <div class="btn-group">
-                <a href="/paints"><button type="button"  class="btn btn-primary">Twoje farby</button></a>
-                <a href="/paintsets?name={{ user.id }}"><button type="button"  class="btn btn-primary border-0">Twoje zestawy</button></a>
+                <a href="/" class="link">
+                <img src="{% static 'images/logo4.png' %}" class="d-none d-md-block navbar-brand" style="height:100px">
+                </a>
             </div>
-        {% endif %}
 
-        <div class="btn-group">
+
+            {% if user.is_authenticated %}
+                <div class="col d-none d-md-block">
+                    <div class="btn-group btn-group-fluid">
+                        <a href="/paints">
+                            <button type="button" class="btn btn-primary border-0 text-nowrap">Twoje farby</button>
+                        </a>
+                        <a href="/paintsets?name={{ user.id }}">
+                            <button type="button" class="btn btn-primary border-0 text-nowrap">Twoje zestawy</button>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="btn-group d-none d-md-block">
+
                 {% if user.is_authenticated %}
                     <div class="my-auto">Zalogowano jako: {{ user.username }}</div>
-                        <a href="/logout"><button type="button"  class="btn btn-primary border-0">Wyloguj się</button></a>
+                    <a href="/logout">
+                        <button type="button" class="btn btn-primary border-0">Wyloguj się</button>
+                    </a>
                 {% else %}
-                    <a href="/accounts/login"><button type="button" class="btn btn-primary border-0" >Zaloguj się</button></a>
-                    <a href="/registering"><button type="button"  class="btn btn-primary border-0">Zarejestruj się</button></a>
+                    <a href="/accounts/login">
+                        <button type="button" class="btn btn-primary border-0">Zaloguj się</button>
+                    </a>
+                    <a href="/registering">
+                        <button type="button" class="btn btn-primary border-0">Zarejestruj się</button>
+                    </a>
                 {% endif %}
-        </div>
+            </div>
+        <div class="collapse navbar-collapse d-md-none justify-content-staart align-center" id="main-nav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <button class="navbar-toggler d-md-none" data-bs-toggle="collapse"
+                data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                aria-label="Toggle navigation">fdg
+                </button>
+                </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                <a class="nav-link" href="/paints">
+                            Twoje farby
+                        </a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="/paintsets?name={{ user.id }}">
+                            Twoje zestawy
+                        </a>
+                </li>
 
-    </div>
-</div>
-<div class=".container-fluid ">
 
+            {% endif %}
+            {% if user.is_authenticated %}
+                <br>
+                    <li class="nav-item">Zalogowano jako: {{ user.username }}</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        Wyloguj się
+                    </a>
+                </li>
+                {% else %}
+                    <a href="/accounts/login">
+                        <button type="button" class="btn btn-primary border-0 text-nowrap">Zaloguj się</button>
+                    </a>
+                    <a href="/registering">
+                        <button type="button" class="btn btn-primary border-0 text-nowrap">Zarejestruj się</button>
+                    </a>
+                {% endif %}
+            </ul>
+            </div>
+
+        </nav>
 </div>
+
+
+<section>
     <div class="row justify-content-left">
 
         <div class="col-12 col-md-4 col-lg-2">
-    <menu >
-        <h4 class="h4">
-          Przeglądaj według producentów
-        </h4>
+            <menu>
+                <h4 class="h4">
+                    Przeglądaj według producentów
+                </h4>
 
-        <ol class="list-group border-0 ">
-            <li class="list-group-item border-0"> <a href="/katalog/brand/1" ><button type="button" class="btn btn-primary border-0 w-100">Citadel</button></a></li>
-            <li class="list-group-item border-0"><a href="/katalog/brand/2"><button type="button" class="btn btn-primary border-0 w-100">Vallejo</button></a></li>
-            <li class="list-group-item border-0"><a href="/katalog/brand/3"><button type="button" class="btn btn-primary border-0 w-100">Tamiya</button></a></li>
+                <ol class="list-group border-0 ">
+                    <li class="list-group-item border-0"><a href="/katalog/brand/1">
+                        <button type="button" class="btn btn-primary border-0 w-100">Citadel</button>
+                    </a></li>
+                    <li class="list-group-item border-0"><a href="/katalog/brand/2">
+                        <button type="button" class="btn btn-primary border-0 w-100">Vallejo</button>
+                    </a></li>
+                    <li class="list-group-item border-0"><a href="/katalog/brand/3">
+                        <button type="button" class="btn btn-primary border-0 w-100">Tamiya</button>
+                    </a></li>
 
-        </ol>
-        <h4 class="h4">
-            Przeglądaj według rodzajów
-        </h4>
-        <ol class="list-group border-0">
-            <li class="list-group-item border-0"><a href="/katalog/type/1"><button type="button" class="btn btn-primary border-0 w-100">Regular</button></a></li>
-            <li class="list-group-item border-0"><a href="/katalog/type/2"><button type="button" class="btn btn-primary border-0 w-100">Wash</button></a></li>
-            <li class="list-group-item border-0"><a href="/katalog/type/3"><button type="button" class="btn btn-primary border-0 w-100">Ink</button></a></li>
-            <li class="list-group-item border-0"><a href="/katalog/type/4"><button type="button" class="btn btn-primary border-0 w-100">Contrast</button></a></li>
-            <li class="list-group-item border-0"><a href="/katalog/type/5"><button type="button" class="btn btn-primary border-0 w-100">Spray</button></a></li>
-            <li class="list-group-item border-0"><a href="/katalog/type/6"><button type="button" class="btn btn-primary border-0 w-100">Other</button></a></li>
+                </ol>
+                <h4 class="h4">
+                    Przeglądaj według rodzajów
+                </h4>
+                <ol class="list-group border-0">
+                    <li class="list-group-item border-0"><a href="/katalog/type/1">
+                        <button type="button" class="btn btn-primary border-0 w-100">Regular</button>
+                    </a></li>
+                    <li class="list-group-item border-0"><a href="/katalog/type/2">
+                        <button type="button" class="btn btn-primary border-0 w-100">Wash</button>
+                    </a></li>
+                    <li class="list-group-item border-0"><a href="/katalog/type/3">
+                        <button type="button" class="btn btn-primary border-0 w-100">Ink</button>
+                    </a></li>
+                    <li class="list-group-item border-0"><a href="/katalog/type/4">
+                        <button type="button" class="btn btn-primary border-0 w-100">Contrast</button>
+                    </a></li>
+                    <li class="list-group-item border-0"><a href="/katalog/type/5">
+                        <button type="button" class="btn btn-primary border-0 w-100">Spray</button>
+                    </a></li>
+                    <li class="list-group-item border-0"><a href="/katalog/type/6">
+                        <button type="button" class="btn btn-primary border-0 w-100">Other</button>
+                    </a></li>
 
 
-        </ol>
+                </ol>
 
-    </menu>
-</div>
-        <div class="col h-full justify-content-between">
-        <br>
+            </menu>
+        </div>
+        <div class="col h-full justify-content-between align-items-center">
+
 
             {% block content %}
             {% endblock %}
         </div>
 
+    </div>
+</section>
 </div>
-</div>
+
 {% bootstrap_javascript %}
 
 </body>
