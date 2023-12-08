@@ -30,6 +30,20 @@ class Paint(models.Model):
     def __str__(self):
         return "{} ".format(self.name)
 
+class New_Paint_Analogs(models.Model):
+    """This class creates paints and their analogs"""
+    New_Citadel = models.CharField(null=True, max_length=64)
+    Old_Citadel = models.CharField(null=True, max_length=64)
+    Vallejo_Game_Color = models.CharField(null=True, max_length=64)
+    VGC_Code = models.FloatField(null=True, max_length=64)
+    Vallejo_Model_Color = models.CharField(null=True, max_length=64)
+    VMC_Code = models.FloatField(null=True, max_length=64)
+    Vallejo_Model_Air = models.CharField(null=True, max_length=64)
+    VMA_Code = models.FloatField(null=True, max_length=64)
+    Rackham = models.CharField(null=True, max_length=64)
+    Privateer_Press = models.CharField(null=True, max_length=64)
+    Hex_Code = models.CharField(null=True, max_length=64)
+
 class Paint_Sets(models.Model):
     """This model represents paintsets created by the user"""
     name = models.CharField(max_length=64)
