@@ -43,7 +43,6 @@ class New_Paint_Analogs(models.Model):
     Rackham = models.CharField(null=True, max_length=64)
     Privateer_Press = models.CharField(null=True, max_length=64)
     Hex_Code = models.CharField(null=True, max_length=64)
-    Style = models.CharField(null=True, max_length=64)
 
 class Paint_Sets(models.Model):
     """This model represents paintsets created by the user"""
