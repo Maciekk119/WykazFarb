@@ -17,19 +17,6 @@ TYPES = (
     (6, 'Other'),
 
 )
-
-
-class Paint(models.Model):
-    """This model creates paints"""
-    name = models.CharField(max_length=64)
-    code = models.CharField(null=True, max_length=64)
-    brand = models.IntegerField(choices=BRANDS)
-    type = models.IntegerField(choices=TYPES)
-    analog = models.ManyToManyField('self')
-
-    def __str__(self):
-        return "{} ".format(self.name)
-
 class New_Paint_Analogs(models.Model):
     """This class creates paints and their analogs"""
     New_Citadel = models.CharField(null=True, max_length=64)
@@ -44,6 +31,19 @@ class New_Paint_Analogs(models.Model):
     Privateer_Press = models.CharField(null=True, max_length=64)
     Hex_Code = models.CharField(null=True, max_length=64)
 
+
+class Paint(models.Model):
+    """This model creates paints"""
+    name = models.CharField(max_length=64)
+    code = models.CharField(null=True, max_length=64)
+    brand = models.IntegerField(choices=BRANDS)
+    type = models.IntegerField(choices=TYPES, null=True)
+    hex = models.ForeignKey(New_Paint_Analogs, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return "{} ".format(self.name)
+
+
 class Paint_Sets(models.Model):
     """This model represents paintsets created by the user"""
     name = models.CharField(max_length=64)
@@ -55,8 +55,7 @@ class Collection(models.Model):
     contains = models.ManyToManyField(Paint)
 
 
-    def __str__(self):
-        return "{} ".format(self.name)
+
 
 class Element(models.Model):
     name = models.CharField(max_length=64)
