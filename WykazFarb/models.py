@@ -3,8 +3,10 @@ from django.contrib.auth.models import User
 
 BRANDS = (
     (1, 'Citadel'),
-    (2, 'Vallejo'),
-    (3, 'Tamiya'),
+    (2, 'Vallejo Game Color'),
+    (3, 'Vallejo Game Air'),
+    (4, 'Old Citadel'),
+    (4, 'Tamiya'),
 
 )
 
@@ -53,9 +55,6 @@ class Collection(models.Model):
     """This model represents collection of paints owned by the user"""
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     contains = models.ManyToManyField(Paint)
-
-
-
 
 class Element(models.Model):
     name = models.CharField(max_length=64)
