@@ -8,11 +8,11 @@
             {% for zestaw in farby %}
                 {% with collapse=forloop.counter %}
                     <div>
-                    <div class="accordion-item  border-primary border-4 my-1">
+                    <div class="accordion-item  border-secondary border-4 my-1">
                     {% for pozycja1 in zestaw|slice:":1" %}
 
                         <h2 class="accordion-header ">
-                            <button class="accordion-button   text-primary bg-white " type="button"
+                            <button class="accordion-button   text-secondary bg-white " type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#collapse{{ collapse }}" aria-expanded="true"
                                     aria-controls="collapse{{ collapse }}">
@@ -45,7 +45,7 @@
                         <div class="form-group justify-between d-flex">
                             <input class="form-control input-sm" id="id_text_input" type="text" name="text_input"
                                    value="" placeholder="Nazwa nowego zestawu">
-                            <button class="btn btn-primary" type="submit" name="button1" value="Dodaj">Dodaj</button>
+                            <button class="btn btn-secondary" type="submit" name="button1" value="Dodaj">Dodaj</button>
                         </div>
                     </form>
                 </div>
