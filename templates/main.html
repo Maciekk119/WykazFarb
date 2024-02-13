@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container-fluid vh-100">
     <div class="row  bg-primary justify-content-between">
         <nav class="navbar bg-primary navbar-light">
 
@@ -101,16 +101,16 @@
 </div>
 
 
-<section>
-    <div class="row justify-content-left">
+<section class="h-100">
+    <div class="row justify-content-between h-100">
 
-        <div class="col-12 col-md-4 col-lg-2">
-            <menu>
+        <div class="col-4 col-md-4 col-lg-2 ">
+            <menu class>
                 <h4 class="h4">
                     Przeglądaj według producentów
                 </h4>
 
-                <ol class="list-group border-0 ">
+                <ol class="list-group border-0 h-100">
                     <li class="list-group-item border-0"><a href="/katalog/brand/1">
                         <button type="button" class="btn btn-secondary border-0 w-100">Citadel</button>
                     </a></li>
@@ -153,11 +153,12 @@
 
             </menu>
         </div>
-        <div class="col h-full justify-content-between align-items-center">
+        <div class="col-10 justify-content-between h-100">
 
-
+            <div class="row justify-content-between">
             {% block content %}
             {% endblock %}
+            </div>
         </div>
 
     </div>

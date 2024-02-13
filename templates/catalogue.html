@@ -2,34 +2,35 @@
     {% block content %}
     <h1>Katalog farb</h1>
 
-    <div class="col col-2 justify-content-between">
 
-        <div class="accordion " id="accordion">
+
+{#        <div class="accordion"  id="accordion">#}
         {% csrf_token %}
         {% for farba in paints%}
             {% with collapse=forloop.counter %}
-            <div>
-            <div class="accordion-item border-secondary border-4 my-1">
-                <h2 class="accordion-header ">
-                    <button class="accordion-button text-secondary "  style="background: #{{ farba.hex.Hex_Code }}" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse{{ collapse }}" aria-expanded="true"
-                            aria-controls="collapse{{ collapse }}">{{ farba }}
+
+{#            <div class="accordion-item border-secondary border-4 my-1">#}
+{#                <h2 class="accordion-header ">#}
+                    <button typeof="button" class="btn btn-secondary border-0 col-2 text-secondary"  style="background: #{{ farba.hex.Hex_Code }}" type="button"
+{#                            data-bs-toggle="collapse"#}
+{#                            data-bs-target="#collapse{{ collapse }}" aria-expanded=""#}
+{#                            aria-controls="collapse{{ collapse }}"#}
+                    >{{ farba }}
+{#                        #}
 
                     </button>
-                </h2>
+{#                </h2>#}
 
-            <div id="collapse{{ collapse }}" class="accordion-collapse collapse" data-bs-parent="#accordion">
-            <div class="accordion-body">
-                <a class="btn border-secondary border-2 text-secondary"  href="/odpowiedniki/{{ farba.id }}">Odpowiedniki</a>
-            </div>
-            </div>
-            </div>
-            </div>
+{#            <div id="collapse{{ collapse }}" class="accordion-collapse collapse" data-bs-parent="#accordion">#}
+{#            <div class="accordion-body">#}
+{#                <a class="btn border-secondary border-2 text-secondary"  href="/odpowiedniki/{{ farba.id }}">Odpowiedniki</a>#}
+{#            </div>#}
+{#            </div>#}
+{#            </div>#}
             {% endwith %}
         {% endfor %}
 
-        </div>
-    </div>
+{#        </div>#}
 
 
     {% endblock %}
