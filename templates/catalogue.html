@@ -1,17 +1,18 @@
 {% extends 'main.html' %}
     {% block content %}
-    <h1>Katalog farb</h1>
+    <h1>Katalog farb{{ paints.count }}</h1>
 
 
 
 {#        <div class="accordion"  id="accordion">#}
         {% csrf_token %}
         {% for farba in paints%}
-            {% with collapse=forloop.counter %}
+{#            {% with collapse=forloop.counter %}#}
 
 {#            <div class="accordion-item border-secondary border-4 my-1">#}
 {#                <h2 class="accordion-header ">#}
-                    <button typeof="button" class="btn btn-secondary border-0 col-2 text-secondary"  style="background: #{{ farba.hex.Hex_Code }}" type="button"
+                <div class=" col-md-2 col-6 p-1">
+                    <button typeof="button" class="btn btn-secondary h-100 border-0 text-secondary"  style="background: #{{ farba.hex.Hex_Code }}" type="button"
 {#                            data-bs-toggle="collapse"#}
 {#                            data-bs-target="#collapse{{ collapse }}" aria-expanded=""#}
 {#                            aria-controls="collapse{{ collapse }}"#}
@@ -19,6 +20,7 @@
 {#                        #}
 
                     </button>
+                </div>
 {#                </h2>#}
 
 {#            <div id="collapse{{ collapse }}" class="accordion-collapse collapse" data-bs-parent="#accordion">#}
@@ -27,7 +29,7 @@
 {#            </div>#}
 {#            </div>#}
 {#            </div>#}
-            {% endwith %}
+{#            {% endwith %}#}
         {% endfor %}
 
 {#        </div>#}

@@ -101,17 +101,17 @@
 </div>
 
 
-<section class="h-100">
-    <div class="row justify-content-between h-100">
+<section class="h-100 justify-content-center">
+    <div class="row justify-content-center h-100">
 
-        <div class="col-4 col-md-4 col-lg-2 ">
-            <menu class>
-                <h4 class="h4">
+        <div class="col-12 col-md-4 col-lg-2 justify-content-center">
+            <menu class="w-100 justify-content-center">
+                <h4 class="h4 ">
                     Przeglądaj według producentów
                 </h4>
 
-                <ol class="list-group border-0 h-100">
-                    <li class="list-group-item border-0"><a href="/katalog/brand/1">
+                <ol class="list-group border-0 h-100 w-100">
+                    <li class="list-group-item border-0 "><a href="/katalog/brand/1">
                         <button type="button" class="btn btn-secondary border-0 w-100">Citadel</button>
                     </a></li>
                     <li class="list-group-item border-0"><a href="/katalog/brand/4">
@@ -128,7 +128,7 @@
                 <h4 class="h4">
                     Przeglądaj według rodzajów
                 </h4>
-                <ol class="list-group border-0">
+                <ol class="list-group border-0 w-100">
                     <li class="list-group-item border-0"><a href="/katalog/type/1">
                         <button type="button" class="btn btn-secondary border-0 w-100">Regular</button>
                     </a></li>
@@ -141,7 +141,7 @@
                     <li class="list-group-item border-0"><a href="/katalog/type/4">
                         <button type="button" class="btn btn-secondary border-0 w-100">Contrast</button>
                     </a></li>
-                    <li class="list-group-item border-0"><a href="/katalog/type/5">
+                    <li class="list-group-item border-0 w-100"><a href="/katalog/type/5">
                         <button type="button" class="btn btn-secondary border-0 w-100">Spray</button>
                     </a></li>
                     <li class="list-group-item border-0"><a href="/katalog/type/6">
@@ -153,9 +153,9 @@
 
             </menu>
         </div>
-        <div class="col-10 justify-content-between h-100">
+        <div class="col-md-8 col-lg-10 justify-content-center h-100">
 
-            <div class="row justify-content-between">
+            <div class="row justify-content-left p-4">
             {% block content %}
             {% endblock %}
             </div>
