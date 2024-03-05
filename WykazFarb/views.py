@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from math import floor
 
 
 class Main(View):
@@ -20,8 +21,19 @@ class CatalogueBrands(View):
     """This view in this class shows paints divided by brands"""
 
     def get(self, request, brand):
-        paints = Paint.objects.filter(brand=brand)
-        return render(request, 'catalogue.html', {'paints': paints})
+        paints = Paint.objects.filter(brand=brand).order_by('id')
+        paints_col_number = floor(paints.count()/12)
+        paints_rest = paints.count()%12
+        print(paints.count())
+        print(paints_rest)
+        columns = {'paints_1': None, 'paints_2': None, 'paints_3': None,'paints_4': None,
+                   'paints_5': None, 'paints_6': None, 'paints_7': None,'paints_8': None,
+                   'paints_9': None, 'paints_10': None, 'paints_11': None,'paints_12': None,}
+        paints_1 = 'x'
+        for i in range(1, 12):
+            i = i+1
+            print(i)
+        return render(request, 'catalogue.html', {'paints': paints, 'paints_1': paints_1})
 
 
 class CatalogueTypes(View):

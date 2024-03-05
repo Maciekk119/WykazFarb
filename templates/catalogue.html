@@ -1,41 +1,49 @@
 {% extends 'main.html' %}
-    {% block content %}
-    <h1>Katalog farb{{ paints.count }}</h1>
+{% block content %}
+    <h1>Katalog farb </h1>
 
 
 
-{#        <div class="accordion"  id="accordion">#}
-        {% csrf_token %}
-        {% for farba in paints%}
-{#            {% with collapse=forloop.counter %}#}
+    {#        <div class="accordion"  id="accordion">#}
+    {% csrf_token %}
 
-{#            <div class="accordion-item border-secondary border-4 my-1">#}
-{#                <h2 class="accordion-header ">#}
-                <div class=" col-md-2 col-6 p-1">
-                    <button typeof="button" class="btn btn-secondary h-100 border-0 text-secondary"  style="background: #{{ farba.hex.Hex_Code }}" type="button"
-{#                            data-bs-toggle="collapse"#}
-{#                            data-bs-target="#collapse{{ collapse }}" aria-expanded=""#}
-{#                            aria-controls="collapse{{ collapse }}"#}
+        {% for i in '123456789012' %}
+            <div class=" col-md-2 col-6 p-1">
+                {% for farba in paints %}
+                    {#            {% with collapse=forloop.counter %}#}
+
+                    {#            <div class="accordion-item border-secondary border-4 my-1">#}
+                    {#                <h2 class="accordion-header ">#}
+
+
+                    <button typeof="button" class="btn btn-secondary m-1 border-0 text-secondary w-100"
+                            style="background:#{{ farba.hex.Hex_Code }}" type="button"
+                            {#                            data-bs-toggle="collapse"#}
+                            {#                            data-bs-target="#collapse{{ collapse }}" aria-expanded=""#}
+                            {#                            aria-controls="collapse{{ collapse }}"#}
                     >{{ farba }}
-{#                        #}
+                        {#                        #}
 
                     </button>
-                </div>
-{#                </h2>#}
 
-{#            <div id="collapse{{ collapse }}" class="accordion-collapse collapse" data-bs-parent="#accordion">#}
-{#            <div class="accordion-body">#}
-{#                <a class="btn border-secondary border-2 text-secondary"  href="/odpowiedniki/{{ farba.id }}">Odpowiedniki</a>#}
-{#            </div>#}
-{#            </div>#}
-{#            </div>#}
-{#            {% endwith %}#}
+                    {#                </h2>#}
+
+                    {#            <div id="collapse{{ collapse }}" class="accordion-collapse collapse" data-bs-parent="#accordion">#}
+                    {#            <div class="accordion-body">#}
+                    {#                <a class="btn border-secondary border-2 text-secondary"  href="/odpowiedniki/{{ farba.id }}">Odpowiedniki</a>#}
+                    {#            </div>#}
+                    {#            </div>#}
+                    {#            </div>#}
+                    {#            {% endwith %}#}
+
+                {% endfor %}
+            </div>
         {% endfor %}
 
-{#        </div>#}
+    {#        </div>#}
 
 
-    {% endblock %}
+{% endblock %}
 
 
 

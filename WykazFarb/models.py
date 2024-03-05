@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 BRANDS = (
     (1, 'Citadel'),
     (2, 'Vallejo Game Color'),
-    (3, 'Vallejo Game Air'),
+    (3, 'Vallejo Model Color'),
     (4, 'Old Citadel'),
     (4, 'Tamiya'),
 
