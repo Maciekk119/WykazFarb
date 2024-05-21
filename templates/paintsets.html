@@ -28,7 +28,7 @@
                             {% for element in pozycja2 %}
 
                                 <div class="col-6 p-1">
-                                <button typeof="button" class="btn btn-secondary w-100 h-100 border-0 text-secondary"  style="background: #{{ element.hex.Hex_Code }}" type="button">{{ element }}</button>
+                                <a href="/odpowiedniki/{{ element.id }}" typeof="button" class="btn btn-secondary w-100 h-100 border-0 text-secondary"  style="background: #{{ element.hex.Hex_Code }}" type="button">{{ element }}</a>
                                 </div>
 
                             {% endfor %}
