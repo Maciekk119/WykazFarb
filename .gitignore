@@ -1,5 +1,5 @@
 .idea
 venv
 **/*.pyc
-.WykazFarb/settings.py
-.WykazFarb/migrations/
+/WykazFarb/settings.py
+/WykazFarb/migrations/
